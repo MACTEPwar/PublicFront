@@ -1,3 +1,22 @@
-<p>
-  menu works!
-</p>
+<div class="container-fluid h-100">
+  <div class="row h-100">
+    <div class="col-3 h-100">
+      <div class="row h-15 my-3 justify-content-center" *ngFor="let el of elements;let ind = index;"
+        [ngClass]="{'table-primary': currentItemGroup-1 === ind}">
+        <div class="col h-100 text-center">
+          <img src="{{el.src}}" height="80%" width="auto" alt="">
+          <div class="h5">{{el.title}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="div" *ngFor="let item of elements;let ind = index;">
+        <div *ngIf="currentItemGroup-1 === ind">
+          <div class="div ml-2" *ngFor="let i of item.items">
+            {{i.title}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

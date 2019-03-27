@@ -14,7 +14,9 @@ export class SaleComponent implements OnInit, DoCheck {
   totalSum: number = 48;
   isShowedDilogSale: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+     
+  }
 
   products: Array<Product> = [
     new Product(111, "Картошка", 14, 1, 0, "кг"),
@@ -28,24 +30,36 @@ export class SaleComponent implements OnInit, DoCheck {
   minIndexProduct = this.products == null ? 0 : 1;
 
   ngDoCheck() {
-    //console.log(this.isShowedDilogSale);
+    ///////////// fullscreen
+    // var es = $.Event("keydown", { keyCode: 82});
+    //  $(document).trigger(es);
   }
 
   ngOnInit() {
     this.onKeyDown();
     this.onKeyPress();
+    
   }
 
-  onKeyPress(){
+  onKeyPress() {
     document.onkeypress = (e) => {
-      console.log(e.key.match(/\d/i) === null);
-      //if (e.key.match(/\d/i) === null) return false;
     }
   }
 
   onKeyDown() {
     document.onkeydown = (e) => {
+      if (e.key === 'F1') {
+        e.preventDefault();
+        return false;
+      }
+      
       switch (e.keyCode) {
+        case 82: {
+          //console.log("sadasd");
+          ///////////// fullscreen
+          document.documentElement.requestFullscreen();
+          break;
+        }
         case 13: {
           if (this.currentProductTitle !== "") {
             this.addProduct();
