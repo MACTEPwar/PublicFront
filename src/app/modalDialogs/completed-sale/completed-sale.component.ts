@@ -23,6 +23,7 @@ export class CompletedSaleComponent implements OnInit {
       switch (e.keyCode) {
         case 13: {
           // DO SAVE
+          // asd
           if (this.state === 0){
             if (this.moneyReceived >= this.totalSum){
               this.oddMoney = this.totalSum - this.moneyReceived;
