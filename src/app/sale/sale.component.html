@@ -1,0 +1,55 @@
+<div class="container-fluid h-100">
+  <div class="row h-75 scroll-y">
+    <table class="table" id="tableProductSale">
+      <thead id="theadTableProductSale">
+        <tr>
+          <th>Наименование</th>
+          <th>Цена</th>
+          <th>Кол-во</th>
+          <th>Скидка</th>
+        </tr>
+      </thead>
+      <tbody id="bodyTableProductSale">
+        <tr *ngFor="let item of products;let ind = index">
+          <td *ngIf="ind+1 === currentIndexProduct" scope="row" [ngClass]="['table-primary']">{{item.Title}}</td>
+          <td *ngIf="ind+1 === currentIndexProduct" [ngClass]="['table-primary']">{{item.Price}}</td>
+          <td *ngIf="ind+1 === currentIndexProduct" [ngClass]="['table-primary']">{{item.Count}}</td>
+          <td *ngIf="ind+1 === currentIndexProduct" [ngClass]="['table-primary']">{{item.Discount}}</td>
+          <td *ngIf="ind+1 !== currentIndexProduct" scope="row">{{item.Title}}</td>
+          <td *ngIf="ind+1 !== currentIndexProduct">{{item.Price}}</td>
+          <td *ngIf="ind+1 !== currentIndexProduct">{{item.Count}}</td>
+          <td *ngIf="ind+1 !== currentIndexProduct">{{item.Discount}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row mt-5 mx-0 h-10">
+    <div class="col-7">
+      <div class="row">
+        <input type="text" class="form-control" [(ngModel)]="currentProductTitle">
+      </div>
+      <div class="row">
+        <div class="font-2">{{currentProduct.Code}}</div>
+      </div>
+      <div class="row">
+          <div class="font-2">{{currentProduct.Title}}</div>
+        </div>
+    </div>
+    <div class="col-2">
+      <div class="row">
+        <div class="col">
+          <div class="font-2">Изм.: {{currentProduct.Unit}}</div>
+        </div>
+        <div class="col">
+          <div class="font-2">Цена: {{currentProduct.Price}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="row justify-content-center">
+        <div class="font-4">{{totalSum.toFixed(2)}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-completed-sale [totalSum]="totalSum" ></app-completed-sale>

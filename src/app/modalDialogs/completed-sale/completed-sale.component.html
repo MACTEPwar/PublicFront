@@ -1,0 +1,75 @@
+<div class="container-fluid w-100 h-100 p-absolute m-0 p-0">
+  <div class="container modalWindow p-3 rounded" style="color:black;">
+    <div class="row">
+      <div class="col-6">
+        <div class="row m-0 p-0">
+          <div class="h4">Сумма по чеку: {{totalSum}}грн.</div>
+        </div>
+        <div class="border border-primary rounded">
+          <p class="my-2 p-1">
+            Внесено:
+          </p>
+          <div class="row">
+            <div class="col">
+              <p class="p-1">
+                Наличные
+              </p>
+            </div>
+            <div class="col">
+              <p class="p-1">
+                {{moneyReceived}}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="p-1">
+                Карточка
+              </p>
+            </div>
+            <div class="col">
+              <p class="p-1">
+
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="p-1">
+                Чек
+              </p>
+            </div>
+            <div class="col">
+              <p class="p-1">
+
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="p-1">
+                Кредит
+              </p>
+            </div>
+            <div class="col">
+              <p class="p-1">
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div *ngIf="state === 0" class="form-group mt-5 pt-2">
+          <label for="input">Платеж</label>
+          <input type="text" class="form-control" name="inputMoneyReceived" id="inputMoneyReceived"
+            aria-describedby="moneyReceived" [(ngModel)]="moneyReceived" tabIndex="100">
+          <small id="moneyReceived" class="form-text text-muted">Введите полученную сумму</small>
+        </div>
+        <div *ngIf="state === 1" class="form-group mt-5 pt-2">
+          <div class="h4">Сдача {{oddMoney}} грн.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container h-100">
+  <div class="row align-items-center h-100 justify-content-center">
+    <div class="col-6">
+      <form action="#" method="POST" class="m-auto" (submit)="onSubmitForm();">
+        <div class="form-group">
+          <label for="formLoginInputLogin">Логин</label>
+          <input type="text" class="form-control" name="formLoginInputLogin" id="formLoginInputLogin"
+            aria-describedby="logInHelp" placeholder="Логин" autocomplete="off" tabindex="1">
+          <small id="logInHelp" class="form-text text-muted">Введите свой логин</small>
+        </div>
+        <div class="form-group">
+          <label for="formLoginInputPassword">Пароль</label>
+          <input type="password" class="form-control" name="formLoginInputPassword" id="formLoginInputPassword" placeholder="Пароль" autocomplete="off" tabindex="2">
+          <small id="formLoginInputPassword" class="form-text text-muted">Введите свой пароль</small>
+        </div>
+        <button type="submit" class="btn btn-success btn-block"  tabindex="3">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>
