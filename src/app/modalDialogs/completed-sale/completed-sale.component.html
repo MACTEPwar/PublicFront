@@ -63,7 +63,7 @@
         <div *ngIf="state === 0" class="form-group mt-5 pt-2">
           <label for="input">Платеж</label>
           <input type="text" class="form-control" name="inputMoneyReceived" id="inputMoneyReceived"
-            aria-describedby="moneyReceived" [(ngModel)]="moneyReceived" tabIndex="100">
+            aria-describedby="moneyReceived" [(ngModel)]="moneyReceived" tabIndex="100" (keypress)="onInputChange($event);" #input> 
           <small id="moneyReceived" class="form-text text-muted">Введите полученную сумму</small>
         </div>
         <div *ngIf="state === 1" class="form-group mt-5 pt-2">

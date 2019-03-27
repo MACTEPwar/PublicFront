@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, Output  , EventEmitter} from '@angular/core';
+import { $$ } from 'protractor';
+//import { EventEmitter } from 'events';
 declare var $: any;
 
 @Component({
@@ -6,54 +8,56 @@ declare var $: any;
   templateUrl: './completed-sale.component.html',
   styleUrls: ['./completed-sale.component.less']
 })
-export class CompletedSaleComponent implements OnInit {
+export class CompletedSaleComponent implements OnInit, AfterViewInit {
 
   moneyReceived: number;
-  oddMoney:number;
-  state:number = 0;
+  oddMoney: number;
+  state: number = 0;
   @Input() totalSum: number;
+  @Output() isVisible: EventEmitter<boolean> = new EventEmitter<boolean>()
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     $("[tabIndex='100']").focus();
-    console.log( $("app-completed-sale").children().children().find("#inputMoneyReceived"));
-    console.log(this); 
+    
+  }
+
+  ngOnInit() {
+    this.onKeyDown();
+  }
+
+  onKeyDown(){
     document.onkeydown = (e) => {
       switch (e.keyCode) {
         case 13: {
+          
           // DO SAVE
           // asd
-          if (this.state === 0){
-            if (this.moneyReceived >= this.totalSum){
+          if (this.state === 0) {
+            if (this.moneyReceived >= this.totalSum) {
               this.oddMoney = this.totalSum - this.moneyReceived;
               this.state = 1;
             }
-            else{
+            else {
               this.totalSum -= this.moneyReceived;
             }
             break;
           }
-          if (this.state === 1){
+          if (this.state === 1) {
             this.state = 0;
+            this.isVisible.emit(false);
             break;
           }
           break;
         }
         default: {
-          //console.log(this.moneyReceived);
-          // let res = e.key.match(/[\d]/i);
-          // if (res !== null)
-          //   if (res[0] === e.key && e.key.length === 1) {
-          //     console.log(this.moneyReceived.toString());
-          //     var strTemp: string = this.moneyReceived.toString();
-          //     strTemp += e.key;
-          //     this.moneyReceived = parseInt(strTemp);
-          //   }
-          //   else this.moneyReceived = 0;
-          // break;
         }
       }
     }
+  }
+
+  onInputChange(el){
+    if (el.key.match(/\d/i) === null) return false; 
   }
 }

@@ -52,4 +52,4 @@
     </div>
   </div>
 </div>
-<app-completed-sale [totalSum]="totalSum" ></app-completed-sale>
+<app-completed-sale *ngIf="isShowedDilogSale" [totalSum]="totalSum" (isVisible)="isVisible()"></app-completed-sale>

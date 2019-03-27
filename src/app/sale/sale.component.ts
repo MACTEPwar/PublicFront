@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../models/Product';
 declare var $: any;
@@ -8,23 +8,42 @@ declare var $: any;
   templateUrl: './sale.component.html',
   styleUrls: ['./sale.component.less']
 })
-export class SaleComponent implements OnInit {
+export class SaleComponent implements OnInit, DoCheck {
 
   currentProductTitle: string = "";
   totalSum: number = 48;
+  isShowedDilogSale: boolean = false;
+
   constructor(private router: Router) { }
 
   products: Array<Product> = [
-    new Product(111,"Картошка", 14,1, 0,"кг"),
-    new Product(112,"Морковка", 16,1, 0,"кг"),
-    new Product(113,"Слива", 18,1, 0,"кг")
+    new Product(111, "Картошка", 14, 1, 0, "кг"),
+    new Product(112, "Морковка", 16, 1, 0, "кг"),
+    new Product(113, "Слива", 18, 1, 0, "кг")
   ];
 
   currentIndexProduct = this.products.length;
   currentProduct = this.currentIndexProduct == 0 ? null : this.products[this.currentIndexProduct - 1];
   maxIndexProduct = this.products.length;
   minIndexProduct = this.products == null ? 0 : 1;
+
+  ngDoCheck() {
+    //console.log(this.isShowedDilogSale);
+  }
+
   ngOnInit() {
+    this.onKeyDown();
+    this.onKeyPress();
+  }
+
+  onKeyPress(){
+    document.onkeypress = (e) => {
+      console.log(e.key.match(/\d/i) === null);
+      //if (e.key.match(/\d/i) === null) return false;
+    }
+  }
+
+  onKeyDown() {
     document.onkeydown = (e) => {
       switch (e.keyCode) {
         case 13: {
@@ -71,16 +90,21 @@ export class SaleComponent implements OnInit {
         }
         case 85: {
           // отложить товар
+          break;
         }
         case 65: {
           // анулировать
+          break;
         }
         case 79: {
-          console.log(this.currentProduct);
+          //console.log(this.currentProduct);
           // оплата
+          this.isShowedDilogSale = true;
+          break;
         }
         case 75: {
           // копия последнего чека
+          break;
         }
         default: {
           let res = e.key.match(/-?[\d]/i);
@@ -108,12 +132,18 @@ export class SaleComponent implements OnInit {
   }
 
   addProduct() {
-    this.products.push(new Product(113,this.currentProductTitle, 14,1, 0,"кг"));
+    this.products.push(new Product(113, this.currentProductTitle, 14, 1, 0, "кг"));
     this.refreshTotalSum();
     this.currentIndexProduct = this.products.length;
     this.maxIndexProduct = this.products.length;
     this.currentProduct = this.products[this.currentIndexProduct - 1];
   }
+
+  isVisible() {
+    this.isShowedDilogSale = false;
+    this.onKeyDown();
+  }
+
   refreshTotalSum() {
     this.totalSum = 0;
     this.products.forEach(el => {
