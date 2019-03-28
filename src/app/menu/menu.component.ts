@@ -19,8 +19,8 @@ export class MenuComponent implements OnInit {
           title: "Копия чека",
           src: "../../assets/test.png",
           action: () => {
-
-          }
+            this.isShowedDialog = true;
+          }    
         },
         {
           title: "Копия чека КЛЕФ",
@@ -289,18 +289,20 @@ export class MenuComponent implements OnInit {
   }
 
   onKeyDown() {
-    console.log(this.currentItemGroup);
+    //console.log(this.currentItemGroup);
     document.onkeydown = (e) => {
       if (e.key === 'F1') {
         e.preventDefault();
         return false;
       }
-      //console.log();
       this.maxItem = this.elements[this.currentItemGroup - 1].items.length;
       switch (e.keyCode) {
-
         case 13: {
-          this.goToItem();
+          console.log(this.isShowedDialog);
+          if (this.isGroup)this.goToItem();
+          else {
+            this.elements[this.currentItemGroup - 1].items[this.currentItem - 1].action();
+          }
           break;
         }
         case 27: {
@@ -340,5 +342,14 @@ export class MenuComponent implements OnInit {
 
   goBack() {
     this.isGroup = true;
+  }
+  
+  isShowedDialog:boolean = false;
+  resultDialog:string;
+
+  onDialogClick(result:string){
+    this.resultDialog = result;
+    this.isShowedDialog = false;
+    this.onKeyDown();
   }
 }

@@ -43,3 +43,9 @@
     </div>
   </div>
 </div>
+
+<!--  Диалоговые окна  -->
+
+<app-dialog-window [title]="'Заголовок'" [discription]="'Сообщение'" [buttonArray]="[{title:'Ok',class:'btn-success'},{title:'Cancel',class:'btn-danger'}]" [width]="'40%'" (onClickButton)="onDialogClick($event)" *ngIf="isShowedDialog"></app-dialog-window>
+
+<!--  Диалоговые окна  -->

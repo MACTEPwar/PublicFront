@@ -20,7 +20,6 @@ export class CompletedSaleComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     $("[tabIndex='100']").focus();
-    
   }
 
   ngOnInit() {

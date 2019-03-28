@@ -10,6 +10,7 @@ import { FormsModule }   from '@angular/forms';
 import { SaleComponent } from './sale/sale.component';
 import { MenuComponent } from './menu/menu.component';
 import { CompletedSaleComponent } from './modalDialogs/completed-sale/completed-sale.component';
+import { DialogWindowComponent } from './modalDialogs/dialog-window/dialog-window.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CompletedSaleComponent } from './modalDialogs/completed-sale/completed-
     MainComponent,
     SaleComponent,
     MenuComponent,
-    CompletedSaleComponent
+    CompletedSaleComponent,
+    DialogWindowComponent
   ],
   imports: [
     BrowserModule,

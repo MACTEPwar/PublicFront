@@ -1,0 +1,11 @@
+<div class="container-fluid w-100 h-100 p-absolute m-0 p-0">
+    <div class="container modalWindow p-3 rounded" style="color:black;" [ngStyle]="{'width': width}">
+      <div class="row mx-1">{{title}}</div>
+      <div class="row mx-1">{{discription}}</div>
+      <div class="row">
+        <div *ngFor="let item of buttonArray;let ind = index" class="col">
+          <button class="btn {{item.class}} btn-block" tabindex="{{ind+1}}" (click)="onClick(el);" #el>{{item.title}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
