@@ -10,10 +10,33 @@
       </div>
     </div>
     <div class="col-9">
-      <div class="div" *ngFor="let item of elements;let ind = index;">
-        <div *ngIf="currentItemGroup-1 === ind">
-          <div class="div ml-2" *ngFor="let i of item.items">
-            {{i.title}}
+      <div *ngFor="let item of elements;let ind2 = index;" class="">
+        <div *ngIf="currentItemGroup-1 === ind2" class="row">
+          <div class="col">
+            <div *ngFor="let i of item.items; let num = index">
+              <div class="text-center" *ngIf='num<4' [ngClass]="{'table-primary': currentItem-1 === num && !isGroup}">
+                <img src="{{i.src}}" alt="" width="100%" height="auto" style="max-height:22vh; max-width: 11vw;">
+                <div class="div">{{i.title}}</div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col">
+            <div *ngFor="let i of item.items; let num = index">
+              <div class="text-center" *ngIf='num>=4 && num<8'
+                [ngClass]="{'table-primary': currentItem-1 === num && !isGroup}">
+                <img src="{{i.src}}" alt="" width="100%" height="auto" style="max-height:22vh; max-width: 11vw;">
+                <div class="div">{{i.title}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div *ngFor="let i of item.items; let num = index">
+              <div class="text-center" *ngIf='num>=8' [ngClass]="{'table-primary': currentItem-1 === num && !isGroup}">
+                <img src="{{i.src}}" alt="" width="100%" height="auto" style="max-height:22vh; max-width: 11vw;">
+                <div class="div">{{i.title}}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
