@@ -7,21 +7,28 @@ declare var $: any;
   styleUrls: ['./dialog-window.component.less']
 })
 export class DialogWindowComponent implements OnInit,AfterViewInit {
-  @Input() title;
+  @Input() title = "Подтвердите действие";
   @Input() discription;
   @Input() buttonArray: Array<any>;
   @Input() width = '40%';
-  
+  @Input() icon;
+  //{hasVisible: true, placeholder: "asd"}
+  @Input() input:any = {hasVisible: false};
+  inputData:string;
+
   @Output() onClickButton:EventEmitter<string> = new EventEmitter<string>();
 
   currentTab = 1;
   minTab = 1;
-  maxTab; //= this.buttonArray.length;
+  maxTab;
 
   constructor() {   }
 
   ngAfterViewInit(){
-    //$("[tabIndex='1']").focus();
+    if (this.input.hasVisible) $("input").focus();
+    else {
+      // фокус на кнопку
+    }
   }
 
   ngOnInit() {
@@ -39,13 +46,34 @@ export class DialogWindowComponent implements OnInit,AfterViewInit {
         e.preventDefault();
         return false;
       }
-      $("[tabIndex='"+ this.currentTab +"']");
+      console.log(this.input.hasVisible);
+      // $("[tabIndex='"+ this.currentTab +"']");
       switch (e.keyCode) {
-        // case 13: {
-        //   break;
-        // }
+        //Enter
+        case 13: {
+          this.buttonArray.forEach(el => {
+            if (el.title === "Ок")
+            {
+              console.log(this.input);
+              if (this.input.hasVisible){
+                this.onClickButton.emit(this.inputData);
+              }
+              else {
+                
+                this.onClickButton.emit(el.title);
+              }
+            }
+            
+          });
+          break;
+        }
+        // backspace
         case 27: {
-          
+          this.buttonArray.forEach(el => {
+            if (el.title === "Отмена")
+            this.onClickButton.emit(el.title);
+          });
+          break;
           break;
         }
         //вверх

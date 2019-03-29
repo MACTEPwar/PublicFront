@@ -19,15 +19,27 @@ export class MenuComponent implements OnInit {
           title: "Копия чека",
           src: "../../assets/test.png",
           action: () => {
+            //console.log("show");
+            this.titleModal = "Сделать копию чека?";
             this.isShowedDialog = true;
-          }    
+            this.iconModal = "../../assets/info.png"
+            
+          },  
+          callback: () => {
+            console.log(this.resultDialog);
+          }  
         },
         {
           title: "Копия чека КЛЕФ",
           src: "../../assets/test.png",
           action: () => {
-            
-          }
+            this.titleModal = "Подтвердите действие";
+            this.discriptonModal = "Вы точно хотите сделать копию чека КЛЕФ?";
+            this.isShowedDialog = true;
+          },
+          callback: () => {
+            console.log(this.resultDialog);
+          }  
         },
         {
           title: "Копия чека терминала",
@@ -273,15 +285,23 @@ export class MenuComponent implements OnInit {
     },
   ];
 
+  // для хождения по группам
   currentItemGroup: number = 1;
   maxItemGroup: number = this.elements.length;
   minItemGroup: number = 1;
-
+  // для хождения по детям группы
   currentItem: number = 1;
   minItem:number = 1;
   maxItem: number;
-
+  // в данный момент по группам ходим?
   isGroup: boolean = true;
+  // настройки для модального диалогового окна
+  titleModal;
+  discriptonModal
+  buttonArrayModal = [{title:'Ок',class:'btn-success'},{title:'Отмена',class:'btn-danger'}];
+  widthModal = '40%';
+  iconModal;
+  inputModal;
 
 
   ngOnInit() {
@@ -289,7 +309,6 @@ export class MenuComponent implements OnInit {
   }
 
   onKeyDown() {
-    //console.log(this.currentItemGroup);
     document.onkeydown = (e) => {
       if (e.key === 'F1') {
         e.preventDefault();
@@ -298,7 +317,7 @@ export class MenuComponent implements OnInit {
       this.maxItem = this.elements[this.currentItemGroup - 1].items.length;
       switch (e.keyCode) {
         case 13: {
-          console.log(this.isShowedDialog);
+          
           if (this.isGroup)this.goToItem();
           else {
             this.elements[this.currentItemGroup - 1].items[this.currentItem - 1].action();
@@ -351,5 +370,15 @@ export class MenuComponent implements OnInit {
     this.resultDialog = result;
     this.isShowedDialog = false;
     this.onKeyDown();
+    this.elements[this.currentItemGroup - 1].items[this.currentItem - 1].callback();
+    this.refreshDialog();
+  }
+
+  refreshDialog(){
+    this.titleModal = null;
+    this.discriptonModal= null;
+    this.buttonArrayModal = [{title:'Ок',class:'btn-success'},{title:'Отмена',class:'btn-danger'}];
+    this.widthModal = '40%';
+    this.iconModal = undefined;
   }
 }

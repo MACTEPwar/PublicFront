@@ -46,6 +46,10 @@
 
 <!--  Диалоговые окна  -->
 
-<app-dialog-window [title]="'Заголовок'" [discription]="'Сообщение'" [buttonArray]="[{title:'Ok',class:'btn-success'},{title:'Cancel',class:'btn-danger'}]" [width]="'40%'" (onClickButton)="onDialogClick($event)" *ngIf="isShowedDialog"></app-dialog-window>
+<!-- <app-dialog-window [title]="titleModal" [discription]="discriptonModal" [buttonArray]="buttonArrayModal" [width]="widthModal" [icon]="iconModal" [input]="{hasVisible: true, placeholder: 'asd'}" (onClickButton)="onDialogClick($event)" *ngIf="isShowedDialog"></app-dialog-window> -->
+
+<!-- <app-dialog-window [title]="titleModal" [discription]="discriptonModal" [buttonArray]="buttonArrayModal" [width]="widthModal" [icon]="iconModal" [input]="{hasVisible: false}" (onClickButton)="onDialogClick($event)" *ngIf="isShowedDialog"></app-dialog-window> -->
+
+<app-dialog-window [title]="titleModal" [discription]="discriptonModal" [buttonArray]="buttonArrayModal" [width]="widthModal" [icon]="iconModal"(onClickButton)="onDialogClick($event)" *ngIf="isShowedDialog"></app-dialog-window>
 
 <!--  Диалоговые окна  -->
