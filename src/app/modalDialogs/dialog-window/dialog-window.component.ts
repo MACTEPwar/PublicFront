@@ -13,6 +13,7 @@ export class DialogWindowComponent implements OnInit,AfterViewInit {
   @Input() width = '40%';
   @Input() icon;
   //{hasVisible: true, placeholder: "asd"}
+  //
   @Input() input:any = {hasVisible: false};
   inputData:string;
 
