@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
             this.iconModal = "../../assets/info.png"
             
           },  
-          callback: () => {
+          callback: ():any => {
             console.log(this.resultDialog);
           }  
         },
@@ -45,8 +45,16 @@ export class MenuComponent implements OnInit {
           title: "Копия чека терминала",
           src: "../../assets/test.png",
           action: () => {
-            
-          }
+            this.titleModal = "Подтвердите действие";
+            this.discriptonModal = "Вы точно хотите сделать копию чека КЛЕФ?";
+            this.inputsModal = [
+              {label: "asd1"}
+            ]
+            this.isShowedDialog = true;
+          },
+          callback: ():any => {
+            console.log(this.resultDialog);
+          } 
         }
       ]
     },
@@ -59,6 +67,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -66,6 +77,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -73,6 +87,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -80,6 +97,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -87,6 +107,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         }
       ]
@@ -100,6 +123,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -107,6 +133,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -114,6 +143,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -121,6 +153,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -128,6 +163,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         }
       ]
@@ -141,6 +179,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -148,6 +189,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -155,6 +199,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -162,6 +209,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -169,6 +219,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -176,6 +229,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         }
       ]
@@ -189,6 +245,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -196,6 +255,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -203,6 +265,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -210,6 +275,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -217,6 +285,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -224,6 +295,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -231,6 +305,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -238,6 +315,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -245,6 +325,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         }
       ]
@@ -258,6 +341,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -265,6 +351,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -272,6 +361,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         },
         {
@@ -279,6 +371,9 @@ export class MenuComponent implements OnInit {
           src: "../../assets/test.png",
           action: () => {
             
+          },
+          callback: () => {
+            console.log(this.resultDialog);
           }
         }
       ]
@@ -301,7 +396,7 @@ export class MenuComponent implements OnInit {
   buttonArrayModal = [{title:'Ок',class:'btn-success'},{title:'Отмена',class:'btn-danger'}];
   widthModal = '40%';
   iconModal;
-  inputModal;
+  inputsModal = [];
 
 
   ngOnInit() {
@@ -325,7 +420,10 @@ export class MenuComponent implements OnInit {
           break;
         }
         case 27: {
-          if (!this.isGroup) this.goBack();
+          if (!this.isGroup) {
+            this.currentItem = 1;
+            this.goBack();
+          }
           else{
             this.router.navigate(['sale']);
           }
@@ -380,5 +478,6 @@ export class MenuComponent implements OnInit {
     this.buttonArrayModal = [{title:'Ок',class:'btn-success'},{title:'Отмена',class:'btn-danger'}];
     this.widthModal = '40%';
     this.iconModal = undefined;
+    this.inputsModal = [];
   }
 }

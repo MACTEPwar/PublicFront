@@ -9,12 +9,13 @@
         <div *ngIf="discription !== null" class="row mx-1">{{discription}}</div>
       </div>
     </div>
-    <div class="row m-0 p-0" *ngIf="input.hasVisible">
-      <div class="form-group btn-block">
-        <input *ngIf="input.hasVisible && input.placeholder !== undefined" type="text" class="form-control"
-          placeholder="{{input.placeholder}}" [(ngModel)]="inputData">
-        <input *ngIf="input.hasVisible && input.placeholder === undefined || !input.hasVisible" type="text"
-          class="form-control" [(ngModel)]="inputData">
+    <div class="row m-0 p-0" *ngIf="inputs">
+      <div class="col" *ngFor="let input of inputs;let ind = index">
+        <div class="form-group">
+          <label *ngIf="input.label !== undefined" for="">{{input.label}}</label>
+          <input type="text" class="form-control" placeholder="{{input.placeholder}}" tabindex="{{ind + 1}}" [(ngModel)]="inputData[ind]">
+          <small *ngIf="input.helpText !== undefined"  id="helpId" class="form-text text-muted">{{input.helpText}}</small>
+        </div>
       </div>
     </div>
     <div class="row my-2">
