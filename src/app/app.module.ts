@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,9 @@ import { SaleComponent } from './sale/sale.component';
 import { MenuComponent } from './menu/menu.component';
 import { CompletedSaleComponent } from './modalDialogs/completed-sale/completed-sale.component';
 import { DialogWindowComponent } from './modalDialogs/dialog-window/dialog-window.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AppConfigService } from './services/app-config.service';
+//import {ApiServiceService} from './services/api-service.service'
 
 @NgModule({
   declarations: [
@@ -26,9 +29,21 @@ import { DialogWindowComponent } from './modalDialogs/dialog-window/dialog-windo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [AppConfigService],
+      useFactory: (appConfigService: AppConfigService) => {
+        return () => {
+          return appConfigService.loadAppConfig();
+        };
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
