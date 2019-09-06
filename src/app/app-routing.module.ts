@@ -7,6 +7,7 @@ import { SaleComponent } from './sale/sale.component';
 import { MenuComponent } from './menu/menu.component';
 import { CompletedSaleComponent } from './modalDialogs/completed-sale/completed-sale.component';
 import { SalesTouchComponent } from './sales-touch/sales-touch.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: "", component: MainComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: "sale", component: SalesTouchComponent },
   { path: "menu", component: MenuComponent },
   { path: "saleComp", component: CompletedSaleComponent },
+  { path: "test", component: TestComponent },
   { path: "**", component: NotFoundComponent }
 ];
 

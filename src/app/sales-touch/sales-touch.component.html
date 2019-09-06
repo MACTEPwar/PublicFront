@@ -1,100 +1,113 @@
-<div class="row m-0 p-0">
-    <div class="col-10">
-        <div class="row">
-            <div class="card w-100 ml-2 mb-2 mt-2 mr-1">
-                <div class="col-12">
-                    <div class="row">
-                        <table class="table mb-0">
-                            <thead>
-                                <tr>
-                                    <th>Наименование</th>
-                                    <th>Кол-во</th>
-                                    <th>Сумма</th>
-                                    <th>Скд.</th>
-                                    <th>Фнкц.</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let product of Products;let index = index">
-                                    <td scope="row">{{product.Title}}</td>
-                                    <td>{{product.Price}}</td>
-                                    <td>{{product.Count}}</td>
-                                    <td>{{product.Discount}}</td>
-                                    <td>
+<div class="row m-0 p-0 h-100">
+    <div class="col-12">
+        <div class="row" style="height: calc(100% - 70px);">
+            <div class="col">
+                <div class="row h-100">
+                    <div class="card w-100 ml-2 mb-2 mt-2 mr-1" style="height: calc(100% - 125px);">
+                        <div class="col-12">
+                            <div class="row">
+                                <table class="table mb-0 border-bottom">
+                                    <thead>
+                                        <tr>
+                                            <th>Наименование</th>
+                                            <th>Кол-во</th>
+                                            <th>Сумма</th>
+                                            <th>Скд.</th>
+                                            <th>Фнкц.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let product of Products;let index = index">
+                                            <td scope="row">{{product.Title}}</td>
+                                            <td>{{product.Price}}</td>
+                                            <td>{{product.Count}}</td>
+                                            <td>{{product.Discount}}</td>
+                                            <td>
 
-                                        <div class="d-flex mx-auto btn-group bg-white" role="group">
-                                            <!-- <a href="#" class="btn btn-outline-primary" onclick="EditShop(1);" title="Редактировать">
-                                        <i class="far fa-edit fa-1x"></i>
-                                    </a>
-    
-                                    <a href="#" onclick="DeleteShop(1);" class="btn btn-outline-primary" title="Удалить">
-                                        <i class="far fa-trash-alt fa-1x"></i>
-                                    </a> -->
-                                            <a href="#" class="btn btn-primary">*</a>
-                                            <a href="#" class="btn btn-primary">-</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                                <div class="d-flex mx-auto btn-group bg-white" role="group">
+                                                    <!-- <a href="#" class="btn btn-outline-primary" onclick="EditShop(1);" title="Редактировать">
+                                                <i class="far fa-edit fa-1x"></i>
+                                            </a>
+            
+                                            <a href="#" onclick="DeleteShop(1);" class="btn btn-outline-primary" title="Удалить">
+                                                <i class="far fa-trash-alt fa-1x"></i>
+                                            </a> -->
+                                                    <a href="#" class="btn btn-primary">*</a>
+                                                    <a href="#" class="btn btn-warning">-</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card w-100 mr-1 ml-2 mb-2" style="height: 100px">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6">Наименование</div>
+                                        <div class="col-6">Картошка</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Артикул</div>
+                                        <div class="col-6">412312</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Ед. измер.</div>
+                                        <div class="col-6">кг.</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">Цена</div>
+                                        <div class="col-6">0.08</div>
+                                    </div>
+                                </div>
+                                <div class="col-6 text-right my-auto">
+                                    <h1><span>3.15</span></h1>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card w-100 mr-1 ml-2 mb-2">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="col-6">Наименование</div>
-                                <div class="col-6">Картошка</div>
+            <div class="col-auto">
+                <div class="row h-100">
+                    <div class="card w-100 mr-1 mt-1 mb-1" style="background: #2d3350;">
+                        <div class="col-12 h-100 d-table p-0">
+                            <div class="d-table-row">
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
                             </div>
-                            <div class="row">
-                                <div class="col-6">Артикул</div>
-                                <div class="col-6">412312</div>
+                            <div class="d-table-row">
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
                             </div>
-                            <div class="row">
-                                <div class="col-6">Ед. измер.</div>
-                                <div class="col-6">кг.</div>
+                            <div class="d-table-row">
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
                             </div>
-                            <div class="row">
-                                <div class="col-6">Цена</div>
-                                <div class="col-6">0.08</div>
+                            <div class="d-table-row">
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
                             </div>
-                        </div>
-                        <div class="col-6 text-right my-auto">
-                            <h1><span>3.15</span></h1>
+                            <div class="d-table-row">
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
+                                <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-2">
-        <div class="row h-100">
-            <div class="card w-100 mr-1 mt-1 mb-1" style="background: #2d3350;">
-                <div class="col-12 h-100 d-table p-0">
-                    <div class="d-table-row">
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                    </div>
-                    <div class="d-table-row">
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                    </div>
-                    <div class="d-table-row">
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                    </div>
-                    <div class="d-table-row">
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                    </div>
-                    <div class="d-table-row">
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                        <div class="d-table-cell" style="height: 20%;padding:3px;"><a href="#" class="btn btn-success w-100 h-100">+</a></div>
-                    </div>
-                </div>
+        <div class="row" style="height: 70px;">
+            <hr class="hr bg-white w-100 my-1" />
+            <div class="col">
+                <img src="../../assets/imgpsh_fullsize.png">
             </div>
+            <div class="col"></div>
+            <div class="col"></div>
         </div>
     </div>
+
 </div>
