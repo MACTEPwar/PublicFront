@@ -104,5 +104,4 @@ export class SignInComponent implements OnInit, DoCheck {
   onSubmitForm(){
     return false;
   }
-
 }

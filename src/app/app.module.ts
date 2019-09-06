@@ -13,6 +13,7 @@ import { CompletedSaleComponent } from './modalDialogs/completed-sale/completed-
 import { DialogWindowComponent } from './modalDialogs/dialog-window/dialog-window.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppConfigService } from './services/app-config.service';
+import { SalesTouchComponent } from './sales-touch/sales-touch.component';
 //import {ApiServiceService} from './services/api-service.service'
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AppConfigService } from './services/app-config.service';
     SaleComponent,
     MenuComponent,
     CompletedSaleComponent,
-    DialogWindowComponent
+    DialogWindowComponent,
+    SalesTouchComponent
   ],
   imports: [
     BrowserModule,
