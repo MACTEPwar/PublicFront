@@ -1,12 +1,12 @@
 <div class="row m-0 p-0 h-100">
-    <div class="col-12">
-        <div class="row" style="height: calc(100% - 70px);">
-            <div class="col">
+    <div class="col-12 h-100" id="cardTable">
+        <div class="row" style="height: calc(100% - 70px);" id="test">
+            <div class="col h-100">
                 <div class="row h-100">
                     <div class="card w-100 ml-2 mb-2 mt-2 mr-1" style="height: calc(100% - 125px);">
-                        <div class="col-12">
-                            <div class="row">
-                                <table class="table mb-0 border-bottom">
+                        <div class="col-12 h-100">
+                            <div class="row h-100">
+                                <table #table class="mb-0 border-bottom table table-striped w-100" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Наименование</th>
@@ -161,7 +161,7 @@
                             </div>
                             <div class="row m-0 p-0" style="height: calc(100% / 10);">
                                 <div class="col" style="width: 5vh;padding:3px;">
-                                    <a href="#" class="btn btn-standart w-100 h-100 d-flex">
+                                    <a class="btn btn-standart w-100 h-100 d-flex" (click)="openModalDialog('AddProduct');">
                                         <img src="../../assets/search.png" width="100%" class="my-auto" />
                                     </a>
                                 </div>
@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="row m-0 p-0" style="height: calc(100% / 10);">
-                                <div class="col" style="width: 5vh;padding:3px;">
+                                <div class="col h-100" style="width: 5vh;padding:3px;">
                                     <a href="#" class="btn btn-success w-100 h-100 d-flex">
                                         <img src="../../assets/pay.png" height="100%" class="my-auto mx-auto" />
                                     </a>
@@ -204,5 +204,45 @@
             <div class="col"></div>
         </div>
     </div>
+</div>
 
+
+
+<div class="modal fade" #modalWindow role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content" [ngSwitch]="Command">
+            <ng-template ngSwitchCase="AddProduct">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control mt-2" value="{{inputModal}}">
+                            </div>
+                            <div class="col bg-standart">
+                                <app-dial class="w-100" [test]="false" (onChanged)="changeInputModal($event)" (onSelected)="selectInputModal($event)"></app-dial>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">footer</div>
+            </ng-template>
+            <ng-template ngSwitchCase="SearchProduct">
+                <div class="modal-header">header</div>
+                <div class="modal-body">SearchProduct</div>
+                <div class="modal-footer">footer</div>
+            </ng-template>
+            <ng-template ngSwitchDefault>
+                <div class="modal-header">херня</div>
+                <div class="modal-body">херня</div>
+                <div class="modal-footer">херня</div>
+            </ng-template>
+        </div>
+    </div>
 </div>

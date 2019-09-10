@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppConfigService } from './services/app-config.service';
 import { SalesTouchComponent } from './sales-touch/sales-touch.component';
 import { TestComponent } from './test/test.component';
+import { DialComponent } from './dial/dial.component';
 //import {ApiServiceService} from './services/api-service.service'
 
 @NgModule({
@@ -28,7 +29,8 @@ import { TestComponent } from './test/test.component';
     CompletedSaleComponent,
     DialogWindowComponent,
     SalesTouchComponent,
-    TestComponent
+    TestComponent,
+    DialComponent
   ],
   imports: [
     BrowserModule,
