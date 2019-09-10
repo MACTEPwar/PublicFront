@@ -16,6 +16,7 @@ import { AppConfigService } from './services/app-config.service';
 import { SalesTouchComponent } from './sales-touch/sales-touch.component';
 import { TestComponent } from './test/test.component';
 import { DialComponent } from './dial/dial.component';
+import { ScrollBarComponent } from './scroll-bar/scroll-bar.component';
 //import {ApiServiceService} from './services/api-service.service'
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DialComponent } from './dial/dial.component';
     DialogWindowComponent,
     SalesTouchComponent,
     TestComponent,
-    DialComponent
+    DialComponent,
+    ScrollBarComponent
   ],
   imports: [
     BrowserModule,
