@@ -23,7 +23,7 @@
     "core-js": "^2.6.9",
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mkdirp": "^0.5.1",
     "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
